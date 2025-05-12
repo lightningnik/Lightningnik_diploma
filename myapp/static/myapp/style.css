@@ -1,0 +1,247 @@
+/* myapp/static/myapp/style.css */
+
+/* Переменные CSS (для удобства управления цветами) */
+:root {
+    --primary-color: #6f42c1; /* Яркий фиолетовый */
+    --secondary-color: #e9ecef; /* Светлый серый */
+    --background-color: #f8f9fa; /* Очень светлый фон */
+    --text-color: #343a40; /* Темный текст */
+    --light-text-color: #6c757d; /* Светлый текст */
+    --card-background: #ffffff; /* Фон карточек */
+    --border-color: #dee2e6; /* Цвет границ */
+    --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --border-radius-small: 5px;
+    --border-radius-medium: 8px;
+    --border-radius-large: 12px;
+}
+
+/* Общие стили */
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Более современный и читаемый шрифт */
+    line-height: 1.7; /* Увеличиваем межстрочный интервал */
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 0; /* Убираем padding из body, добавим его в container */
+    overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+}
+
+.container {
+    max-width: 1000px; /* Увеличиваем максимальную ширину */
+    margin: 0 auto;
+    padding: 0 20px; /* Увеличиваем горизонтальные отступы */
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700; /* Делаем заголовки более жирными */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 2.5rem; /* Увеличиваем размер главного заголовка */
+}
+
+h2 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.75rem; /* Увеличиваем отступ под подчеркиванием */
+    margin-bottom: 2rem;
+    font-size: 2rem; /* Увеличиваем размер заголовков секций */
+}
+
+p {
+    margin-bottom: 1rem; /* Отступ между параграфами */
+}
+
+/* Стили для шапки */
+header {
+    background: linear-gradient(to right, #6f42c1, #8a2be2, #007bff); /* Трехцветный градиент: фиолетовый -> сине-фиолетовый -> синий */
+    color: white;
+    padding: 3rem 0; /* Большие вертикальные отступы */
+    text-align: center;
+    margin-bottom: 3rem; /* Большой отступ после шапки */
+    box-shadow: var(--shadow-strong); /* Более выраженная тень */
+}
+
+/* Если вы используете переменные, можно так: */
+/* header {
+    background: linear-gradient(to right, var(--primary-color), #8a2be2, #007bff);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-strong);
+} */
+
+
+header h1 {
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Немного более выраженная тень для контраста */
+}
+
+/* Стили для секций */
+section {
+    background-color: var(--card-background);
+    padding: 2.5rem; /* Увеличиваем внутренние отступы */
+    margin-bottom: 2.5rem;
+    border-radius: var(--border-radius-large); /* Более выраженное скругление */
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Плавный переход */
+}
+
+section:hover {
+     transform: translateY(-5px); /* Небольшой подъем при наведении */
+     box-shadow: var(--shadow-strong); /* Усиление тени */
+}
+
+
+/* Стили для секции "Обо мне" */
+.about-me {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.5rem; /* Увеличиваем отступ между элементами flexbox */
+}
+
+.my-photo {
+    width: 200px; /* Еще больше увеличиваем размер фото */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color); /* Более выраженная рамка */
+    box-shadow: var(--shadow-medium); /* Тень для фото */
+    flex-shrink: 0;
+    transition: transform 0.3s ease-in-out; /* Плавный переход для фото */
+}
+
+.my-photo:hover {
+    transform: scale(1.05); /* Небольшое увеличение при наведении */
+}
+
+.about-text {
+    flex-grow: 1;
+    flex-basis: 0;
+    min-width: 320px; /* Увеличиваем минимальную ширину */
+}
+
+.about-text p {
+    font-style: normal;
+    color: var(--light-text-color); /* Более светлый цвет текста */
+    margin-bottom: 1.2rem; /* Увеличиваем отступ между параграфами */
+}
+
+/* Стили для секции "Дипломы" */
+.diplomas ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.diplomas li {
+    background-color: var(--secondary-color);
+    margin-bottom: 1.2rem; /* Увеличиваем отступ */
+    padding: 1.5rem; /* Увеличиваем внутренние отступы */
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-light);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-left: 5px solid var(--primary-color); /* Добавляем цветную полосу слева */
+}
+
+.diplomas li:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.diplomas li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    display: block;
+    transition: color 0.2s ease-in-out; /* Плавный переход цвета ссылки */
+}
+
+.diplomas li a:hover {
+    color: #5a3b9d; /* Чуть более темный оттенок фиолетового */
+    text-decoration: underline;
+}
+
+.diplomas p {
+    font-style: italic;
+    color: var(--light-text-color);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Стили для футера */
+footer {
+    text-align: center;
+    margin-top: 4rem; /* Большой отступ сверху */
+    padding: 2rem;
+    color: var(--light-text-color);
+    font-size: 0.95em; /* Чуть увеличиваем размер текста в футере */
+    border-top: 1px solid var(--border-color);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Уменьшаем общий padding на маленьких экранах */
+    }
+
+    .container {
+        padding: 0 15px; /* Уменьшаем горизонтальные отступы контейнера */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    header {
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+    }
+
+    section {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-me {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem; /* Уменьшаем отступ */
+    }
+
+    .my-photo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1rem;
+    }
+
+    .about-text {
+        min-width: auto;
+    }
+
+    .about-text p {
+         margin-bottom: 1rem;
+    }
+
+    .diplomas li {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    footer {
+        margin-top: 3rem;
+        padding: 1.5rem;
+    }
+}

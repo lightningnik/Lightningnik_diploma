@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Мой сайт | Обо мне и Дипломы</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> {# Добавляем шрифт Inter #}
+    </head>
+<body>
+
+    <header>
+        <div class="container"> {# Обертываем заголовок в контейнер #}
+            <h1>Мой персональный сайт</h1>
+        </div>
+    </header>
+
+    <div class="container"> {# Основной контент в контейнере #}
+        <section class="about-me">
+            <h2>Обо мне</h2>
+            <img src="{% static 'myapp/images/my_photo.jpg' %}" alt="Моя фотография" class="my-photo">
+            <div class="about-text">
+                <p>Привет! Меня зовут Никита. Я занимаюсь написанием дипломов в разных сферах. Имею опыт написания дипломов в сфере программирования и рекламы</p>
+            </div>
+        </section>
+
+        <section class="diplomas">
+            <h2>Мои дипломы и сертификаты</h2>
+
+            {% if diplomas %}
+                <ul>
+                    {% for diploma in diplomas %}
+                        <li>
+                            <a href="{{ diploma.pdf_file.url }}" target="_blank">{{ diploma.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Дипломы и сертификаты пока не загружены.</p>
+            {% endif %}
+        </section>
+    </div> {# Конец контейнера #}
+
+    <footer>
+        <div class="container"> {# Обертываем футер в контейнер #}
+             <p>&copy; 2023 lightningnik. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
